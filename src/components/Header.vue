@@ -37,4 +37,8 @@
     padding: 40px 0;
     text-align: center;
   }
+
+  input, button {
+    font-size: 1.5em;
+  }
 </style>
