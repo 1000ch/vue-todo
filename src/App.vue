@@ -2,8 +2,6 @@
   <div id="app" class="container">
     <Header title="Vue.js Todo App"/>
     <TodoList />
-    <input type="text" v-model="item">
-    <button v-on:click="add">+</button>
   </div>
 </template>
 
@@ -17,21 +15,6 @@
     components: {
       Header,
       TodoList
-    },
-    data() {
-      return {
-        item: ''
-      }
-    },
-    methods: {
-      add: function() {
-        if (this.item.length === 0) {
-          return
-        }
-
-        this.$store.commit('add', this.item)
-        this.item = ''
-      }
     }
   }
 </script>
