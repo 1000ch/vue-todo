@@ -10,15 +10,22 @@ const store = new Vuex.Store({
     items: []
   },
   mutations: {
-    add (state, text) {
+    add(state, text) {
       state.items.push({
         checked: false,
         text
       })
     },
-    remove (state, index) {
+    remove(state, { index }) {
       state.items.splice(index, 1)
+    },
+    check(state, { index, checked }) {
+      state.items[index].checked = checked
     }
+  },
+  getters: {
+    checked: state => state.items.filter(item => item.checked),
+    unchecked: state => state.items.filter(item => !item.checked)
   }
 })
 

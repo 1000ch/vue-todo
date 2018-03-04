@@ -1,7 +1,10 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" v-bind:checked="checked">
+      <input
+        type="checkbox"
+        v-on:change="change"
+        v-bind:checked="checked">
       {{ text }}
     </label>
     <button v-on:click="remove">-</button>
@@ -18,7 +21,15 @@
     },
     methods: {
       remove: function() {
-        this.$store.commit('remove', this.index)
+        this.$store.commit('remove', {
+          index: this.index
+        })
+      },
+      change: function(event) {
+        this.$store.commit('check', {
+          index: this.index,
+          checked: event.target.checked
+        })
       }
     }
   }
